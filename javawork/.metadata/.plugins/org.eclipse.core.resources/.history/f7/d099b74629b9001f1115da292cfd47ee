@@ -13,7 +13,6 @@ public class Ex12For {
 		 */
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("숫자 합계 계산: ");
 		
 		int n, sum = 0;
 		n = sc.nextInt();
@@ -21,8 +20,6 @@ public class Ex12For {
 		for(int i=1;i<=n;i++) {
 			sum += i;
 		}
-		
-		System.out.print(sum+" ");
 	}
 
 }
