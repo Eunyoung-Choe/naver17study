@@ -1,0 +1,27 @@
+package day1213;
+
+import java.util.Scanner;
+
+public class Ex3Switch {
+
+	public static void main(String[] args) {
+
+		/*
+		 * 연도와 월을 입력 후 윤년인지 평년인지 출력하고
+		 * 그 월이 며칠까지 있는지 구하시오.
+		 * (윤년: 연도%4==0 && 연도%100!=0 || 연도%400==0)
+		 */
+		
+		Scanner sc = new Scanner(System.in);
+		int year, month;
+		year = sc.nextInt();
+		month = sc.nextInt();
+		
+		boolean b=year%4==0 && year%100!=0 || year%400==0; //true:윤년, false:평년
+		if(b)
+			System.out.println(year+"년도는 윤년입니다.");
+		else
+			System.out.println(year+"년도는 평년입니다.");
+	}
+
+}

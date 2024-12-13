@@ -1,0 +1,22 @@
+package day1213;
+
+public class Ex6While {
+
+	public static void main(String[] args) {
+		
+		int a = 65;
+		while(a<=90) {
+			System.out.print((char)a++);
+		}
+		
+		
+		
+		System.out.println();
+		char b = 'a';
+		// do~while로 a~z까지 출력하기
+		do {
+			System.out.println((char)b++);
+		}while(b<=90);
+	}
+
+}
