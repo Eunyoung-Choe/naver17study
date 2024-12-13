@@ -33,7 +33,7 @@ public class Ex13For {
 		
 		System.out.println("40세 이상: "+over+"명");
 		System.out.println("40세 미만: "+loss+"명");
-		System.out.println("평균 나이: "+(double)sum/(over+loss));
+		System.out.println("평균 나이: "+sum/(over+loss));
 		
 	}
 
