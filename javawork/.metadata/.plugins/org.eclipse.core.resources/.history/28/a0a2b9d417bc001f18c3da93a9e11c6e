@@ -1,0 +1,14 @@
+
+public class Ex2Array {
+
+	public static void main(String[] args) {
+
+		char []ch; // 배열 선언
+		
+		ch = new char[4]; //0~3 인덱스까지 데이터 넣기 가능
+		
+		System.out.println("배열 크기:"+ch);
+		
+	}
+
+}
