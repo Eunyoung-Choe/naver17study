@@ -38,7 +38,7 @@ public class Ex8Object {
 
 		System.out.println(Orange.MESSAGE);
 		
-		Orange orange = new Orange(); // Orange 객체 생성 → this는 orange 객체를 참조하게 됨.
+		Orange orange = new Orange();
 //		System.out.println(orange.name); //오류: private 변수는 직접 접근 불가 
 		
 		orange.showData();

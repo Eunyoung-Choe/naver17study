@@ -13,7 +13,7 @@ public class Ex10Object {
 	public static void writeCar(int num, Car myCar)
 	{
 		NumberFormat nf = NumberFormat.getInstance();
-		System.out.println(num+"\t"+myCar.getCarName()+"\t"+nf.format(myCar.getCarPrice())+"만 원" );
+		System.out.println(num+"\t"+myCar.getCarName()+"\t"+nf.format(myCar.getCarPrice())+"만 원");
 	}
 
 	public static void main(String[] args) {
