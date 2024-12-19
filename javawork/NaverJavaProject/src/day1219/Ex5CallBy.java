@@ -51,7 +51,7 @@ public class Ex5CallBy {
 	public static void main(String[] args) {
 
 		int n = 100;
-		changeInt(n);
+		changeInt(n); // static 메서드니까 바로 호출 가능
 		System.out.println("n="+n);
 		
 		String s = "Berry";

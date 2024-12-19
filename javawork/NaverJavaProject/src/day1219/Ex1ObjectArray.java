@@ -45,8 +45,8 @@ public class Ex1ObjectArray {
    }
 
    public static void main(String[] args) {
-      // TODO Auto-generated method stub
-      Ex1ObjectArray ex1 = new Ex1ObjectArray();
+
+	  Ex1ObjectArray ex1 = new Ex1ObjectArray();
       //데이터 입력
       ex1.inputData();
       //제목 출력
