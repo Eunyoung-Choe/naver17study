@@ -1,0 +1,36 @@
+package day1220;
+
+class SuperObj2
+{
+	private String schoolName;
+	
+	public SuperObj2() {
+		schoolName = "한양여자대학교";
+	}
+	
+	SuperObj2(String schoolName)
+	{
+		this.schoolName = schoolName;
+	}
+	
+	public void write()
+	{
+		System.out.println("학교명:"+schoolName);
+	}
+}
+
+class SubObj2 extends SuperObj2
+{
+	
+}
+
+
+/*==============================================*/
+public class Ex2Inheri {
+
+	public static void main(String[] args) {
+
+		
+	}
+
+}

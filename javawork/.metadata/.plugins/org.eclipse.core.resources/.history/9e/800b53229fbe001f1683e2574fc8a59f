@@ -1,0 +1,36 @@
+package day1220;
+
+abstract class Test1
+{
+	abstract public void play();
+}
+
+abstract class Test2 extends Test1
+{
+	abstract public void job();
+}
+
+class Test3 extends Test2
+{
+	@Override
+	public void job() {
+		// TODO Auto-generated method stub
+		System.out.println("play");
+	}
+
+	@Override
+	public void play() {
+		// TODO Auto-generated method stub
+		System.out.println("job");
+	}
+	
+}
+
+public class Ex8Abstract {
+
+	public static void main(String[] args) {
+
+		
+	}
+
+}

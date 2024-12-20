@@ -1,0 +1,43 @@
+package day1220;
+
+interface InterB
+{
+	int SPEED = 100; // final 상수
+	public void speedWrite();
+	public void speedUp(int speed);
+	public void speedDown(int speed);
+	
+}
+
+class Car implements InterB
+{
+
+	@Override
+	public void speedWrite() {
+		// TODO Auto-generated method stub
+		System.out.println("현재 스피드는 "+SPEED);
+	}
+
+	@Override
+	public void speedUp(int speed) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void speedDown(int speed) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
+
+public class Ex10Interface {
+
+	public static void main(String[] args) {
+
+		InterB inter = new Car();
+		inter.speedWrite();
+	}
+
+}

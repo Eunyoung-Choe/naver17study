@@ -1,0 +1,18 @@
+package day1220_2;
+
+public class DbServerSystem {
+
+	String dbServerName;
+	int serverPort;
+	
+	public DbServerSystem() {
+		dbServerName = "Oracle";
+		serverPort = 8080;
+	}
+	
+	public DbServerSystem(String dbServerName)
+	{
+		this.dbServerName = dbServerName;
+		this.serverPort = 8080;
+	}
+}
