@@ -10,8 +10,8 @@ public class Ex12SawonArray {
 	 */
 	public static void showTitle()
 	{
-		System.out.println("사원명\t직급\t기본급\t수당\t가족수당\t세금\t실수령액");
-		System.out.println("=".repeat(80));
+		System.out.println("사원명\t직급\t기본급\t\t수당\t가족수당\t세금\t실수령액");
+		System.out.println("=".repeat(60));
 	}
 	
 	

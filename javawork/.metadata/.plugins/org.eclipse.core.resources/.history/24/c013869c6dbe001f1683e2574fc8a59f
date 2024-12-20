@@ -60,10 +60,10 @@ public class Sawon {
 	{
 		int gibon = switch(position)
 				{
-		case "부장" -> 4500000; // break를 안 써도 되는 새 switch문
-		case "과장" -> 3000000;
-		case "대리" -> 2500000;
-		case "사원" -> 1500000;
+		case "부장" -> 450; // break를 안 써도 되는 새 switch문
+		case "과장" -> 300;
+		case "대리" -> 250;
+		case "사원" -> 150;
 		default -> 0;
 				};
 				
@@ -78,12 +78,12 @@ public class Sawon {
 	public int getSudang()
 	{
 		int sudang = switch(position) {
-		case "부장", "과장" -> 700000;
-		case "대리", "사원" -> 500000;
+		case "부장", "과장" -> 70;
+		case "대리", "사원" -> 50;
 		default -> 0;
 		};
 		
-		return sudang; // return 위치가 여기여야 하네?
+		return sudang;
 	}
 	
 	
@@ -105,8 +105,8 @@ public class Sawon {
 	public int getFamSudang()
 	{
 		int famSudang = 0;
-		if(famSu >= 5) famSudang=300000;
-		else if (famSu>=2) famSudang = 100000;
+		if(famSu >= 5) famSudang=30;
+		else if (famSu>=2) famSudang = 10;
 		else famSudang = 0;
 		
 		return famSudang;

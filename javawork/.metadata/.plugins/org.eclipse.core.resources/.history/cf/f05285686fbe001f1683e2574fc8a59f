@@ -11,7 +11,7 @@ public class Ex12SawonArray {
 	public static void showTitle()
 	{
 		System.out.println("사원명\t직급\t기본급\t수당\t가족수당\t세금\t실수령액");
-		System.out.println("=".repeat(80));
+		System.out.println("=".repeat(60));
 	}
 	
 	
@@ -55,23 +55,18 @@ public class Ex12SawonArray {
 			
 			System.out.println();
 			
-			// 사원 생성 [방법 1]
+			// 사원 생성
 			mySawon[i] = new Sawon();
 			mySawon[i].setSawonName(sawonName);
 			mySawon[i].setPosition(pos);
 			mySawon[i].setFamSu(famSu);
-			
-			// 사원생성 [방법 2]
-			mySawon[i] = new Sawon(sawonName, pos, famSu);
 		}
 		
 		
 		/* 제목 출력 */
-		showTitle();
 		
 		/* 반복문 통해서 데이터 출력하는 메서드 호출 */
-		for(Sawon s:mySawon)
-			writeSawon(s);
+		
 	}
 
 }
