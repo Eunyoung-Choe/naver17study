@@ -1,0 +1,40 @@
+package day1224;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Ex4FileReadWrite {
+	static final String FILENAME = "C:/naver1210/member.txt";
+	
+	public static void fileRead() throws IOException
+	{
+		
+	}
+	
+	public static void fileSave() throws IOException
+	{
+		
+	}
+	
+	public static void fileDelete()
+	{
+		
+	}
+	
+	public static int getMenu()
+	{
+		int menu = 0;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("1.멤버추가  2. 전체출력  3. 전체멤버삭제  4. 종료");
+		
+		return menu;
+	}
+	
+	
+	/*=========================================*/
+	public static void main(String[] args) {
+
+	
+	}
+
+}

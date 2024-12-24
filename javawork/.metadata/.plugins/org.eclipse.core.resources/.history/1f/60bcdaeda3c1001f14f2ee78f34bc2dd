@@ -1,0 +1,14 @@
+package day1224;
+
+import java.io.File;
+
+public class Ex2File {
+
+	public static void main(String[] args) {
+
+		File file1 = new File("C:/naver1210/score.txt");
+		System.out.println(file1.length());
+		
+	}
+
+}

@@ -1,0 +1,29 @@
+package day1224;
+
+import java.io.IOException;
+
+public class Ex4FileReadWrite {
+	static final String FILENAME = "C:/naver1210/member.txt";
+	
+	public static void fileRead() throws IOException
+	{
+		
+	}
+	
+	public static void fileSave() throws IOException
+	{
+		
+	}
+	
+	public static int getMenu()
+	{
+		int menu = 0;
+		return menu;
+	}
+	
+	public static void main(String[] args) {
+
+	
+	}
+
+}
