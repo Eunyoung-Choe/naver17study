@@ -1,0 +1,70 @@
+package day1226;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+public class Ex5TableStudent extends JFrame {
+    JTable table;
+    List<Student> studentList = new Vector<Student>();
+    static final String STUDENTFILE = "C:/naver1210/mysawon.txt";
+		
+	public Ex5TableStudent() {
+		super("학생성적관리");
+		this.setBounds(300, 100, 400, 300);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		this.initDesign(); 
+        this.setVisible(true);
+	}
+	
+	public void studentFileRead()
+	{
+		// 파일을 읽어 list 변수에 담기
+		this.studentFileRead();
+	}
+	
+	public void initDesign()
+	{
+		this.studentFileRead(); // 파일 읽어서 list 변수에 담기
+		// list의 데이터를 읽어서 테이블에 출력 후 프레임에 출력하시오.
+		// 제목은 이름, 국어, 영어, 총점, 평균 
+		
+		// 테이블 제목
+		String []title = {"국어", "영어", "총점", "평균"};
+		
+		// 테이블 데이터
+		String [][]data = new String[Student.size()][4];
+		
+		int i = 0;
+		for(Student s:studentList)
+		{
+			data[i][0] = String.valueOf(s.getKor());
+			data[i][1] = String.valueOf(s.getEng());;
+			data[i][2] = String.valueOf(s.getSum());
+			data[i][3] = String.valueOf(s.getAvg());
+			
+			i++;
+		}
+		
+		// 테이블 생성
+		table = new JTable(data, title);
+		
+		// frame에 추가
+		this.add("Center", new JScrollPane(table));
+		
+
+	}
+	
+	/*=======================================*/
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		new Ex5TableStudent();
+		
+	}
+
+}

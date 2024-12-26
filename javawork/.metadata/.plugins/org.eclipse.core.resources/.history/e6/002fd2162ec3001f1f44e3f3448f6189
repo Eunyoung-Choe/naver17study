@@ -1,0 +1,40 @@
+package day1226;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Ex1SawonArrayList {
+	List<Sawon> sawonList = new ArrayList<Sawon>();
+	static final String SAWONFILE = "C:/naver1210/mysawon.txt";
+	
+	public Ex1SawonArrayList() {
+		// 생성 시 파일 불러오기
+		this.sawonFileRead();
+	}
+	
+	// 파일에서 읽어서 sawonList에 넣기
+	public void sawonFileRead()
+	{
+		
+	}
+	
+	// 파일 저장
+	public void sawonFileSave()
+	{
+		
+	}
+	
+	// 이름 입력 시 인덱스 반환
+	public int getSearchName(String name)
+	{
+		int idx = -1;
+		
+		return idx;
+	}
+
+	public static void main(String[] args) {
+
+		
+	}
+
+}

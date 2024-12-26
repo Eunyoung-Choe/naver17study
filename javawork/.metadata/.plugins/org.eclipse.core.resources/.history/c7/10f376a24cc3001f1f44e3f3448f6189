@@ -1,0 +1,22 @@
+package day1226;
+
+import javax.swing.JFrame;
+import javax.swing.JTable;
+
+public class Ex3JTableSawon extends JFrame{
+
+	public Ex3JTableSawon() {
+		super("사원파일읽기");
+		this.setBounds(300, 100, 300, 300);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		
+		this.initDesign(); // 컴포넌트들 추가 
+        this.setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+
+		new Ex3JTableSawon();
+	}
+
+}

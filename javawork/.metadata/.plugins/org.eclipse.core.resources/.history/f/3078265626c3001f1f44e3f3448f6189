@@ -1,0 +1,72 @@
+package day1224;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
+import java.util.Vector;
+
+public class Ex12FileList {
+    
+    static final String FILENAME = "C:/naver1210/sawon.txt";
+    List<String> sawonList = new Vector<String>(); 
+
+    
+    public Ex12FileList() {
+        // 파일에서 이름을 읽어 sawonList에 추가하기
+        try (BufferedReader br = new BufferedReader(new FileReader(FILENAME))) {
+            String line;
+            
+            while ((line = br.readLine()) != null) {
+                sawonList.add(line); // 각 줄을 읽어 리스트에 추가
+                
+            }
+        } catch (IOException e) {
+            System.out.println("파일 오류: " + e.getMessage());
+        }
+    }
+
+    
+    public void sawonMemberList() {
+        // 사원 이름을 번호와 함께 출력하기
+        int n = 0;
+        for (String name : sawonList) {
+            System.out.println(++n + "\t" + name);
+        }
+    }
+    
+    // 해당 이름이 몇 번 인덱스에 있는지 리턴 (없으면 -1)
+    public int getSerachName(String name)
+    {
+    	int idx = -1;
+    	for(int i=0; i<sawonList.size(); i++)
+    	{
+    		String listName = sawonList.get(i);
+    		if(listName.equals(name)) {
+    			idx = i;
+    			break;
+    		}
+    	}
+    	return idx;
+    }
+    
+    // 이름 입력 시 삭제하는 메서드
+    public void deleteSawon(String name)
+    {
+    	int idx = getSearchName(name);
+    	if(idx == -1)
+    		System.out.println(name+"님은 사원 명단에 없습니다.");
+    	else
+    	{
+    		sawonList.remove(idx);
+    		System.out.println(name+"님을 사원 명단에서 삭제했습니다.");
+    	}
+    }
+    
+    
+    /*======================================================*/
+    public static void main(String[] args) {
+        Ex12FileList ex12FileList = new Ex12FileList();
+        ex12FileList.sawonMemberList(); // 사원 목록 출력
+    }
+}

@@ -31,8 +31,8 @@
 		<item key="create_package_info_java" value="false"/>
 	</section>
 	<section name="NewClassCreationWizard.dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="648"/>
-		<item key="DIALOG_Y_ORIGIN" value="197"/>
+		<item key="DIALOG_X_ORIGIN" value="618"/>
+		<item key="DIALOG_Y_ORIGIN" value="242"/>
 		<item key="DIALOG_WIDTH" value="806"/>
 		<item key="DIALOG_HEIGHT" value="921"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

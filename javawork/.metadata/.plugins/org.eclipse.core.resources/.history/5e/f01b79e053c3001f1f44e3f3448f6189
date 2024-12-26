@@ -1,0 +1,38 @@
+package day1226;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JFrame;
+
+public class Ex5TableStudent extends JFrame {
+	static final String FILENAME = "C:/naver1210/student.txt";
+	List<Student> list = new ArrayList<Student>();
+	
+	public Ex5TableStudent() {
+		super("학생성적관리");
+		this.setBounds(300, 100, 400, 300);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		this.initDesign(); 
+        this.setVisible(true);
+	}
+	
+	public void studentFileRead()
+	{
+		
+	}
+	
+	public void initDesign()
+	{
+		
+	}
+	
+	/*=======================================*/
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		new Ex5TableStudent();
+		
+	}
+
+}

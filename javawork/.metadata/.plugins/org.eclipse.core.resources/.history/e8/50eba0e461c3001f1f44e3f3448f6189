@@ -1,0 +1,82 @@
+package day1226;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JFrame;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+public class Ex6TableCRUD extends JFrame {
+	static final String FILENAME="C:/naver1210/student.txt";
+	List<Student> list=new ArrayList<Student>();
+	JTable table;
+	DefaultTableModel tableModel; // 추가, 삭제 등의 메서드를 갖고 있는 클래스 모델
+	
+	public Ex6TableCRUD() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void studentFileRead()
+	{
+		//파일을 읽어서 list 변수에 담기
+		FileReader fr=null;
+		BufferedReader br=null;
+		
+		try {
+			fr=new FileReader(FILENAME);
+			br=new BufferedReader(fr);
+			
+			while(true)
+			{
+				String s=br.readLine();
+				if(s==null)
+					break;
+				Student stu=new Student();
+				String []data=s.split("\\|");
+				stu.setName(data[0]);
+				stu.setKor(Integer.parseInt(data[1]));
+				stu.setEng(Integer.parseInt(data[2]));
+				
+				//list 에 추가
+				list.add(stu);				
+			}
+			System.out.println(list.size());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				br.close();
+				fr.close();
+			} catch (IOException|NullPointerException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+	public void initDesign()
+	{
+		
+	}
+	
+	public void saveFile()
+	{
+		// List 내용을 파일에 저장
+	}
+	/*==================================================*/
+	public static void main(String[] args) {
+
+		new Ex6TableCRUD();
+	}
+
+}
