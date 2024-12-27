@@ -1,0 +1,21 @@
+package day1227;
+
+import java.net.ServerSocket;
+
+public class Ex8SocketServer extends Thread {
+
+	ServerSocket serverSocket;
+	
+	@Override
+	public void run() {
+		System.out.println("서버 소켓 생성");
+	}
+	
+	
+	public static void main(String[] args) {
+
+		Ex8SocketServer server = new Ex8SocketServer();
+		server.start();
+	}
+
+}

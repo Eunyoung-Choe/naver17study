@@ -21,7 +21,7 @@
 	<section name="JavaElementSearchActions">
 	</section>
 	<section name="NewPackageCreationWizard.dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="726"/>
+		<item key="DIALOG_X_ORIGIN" value="696"/>
 		<item key="DIALOG_Y_ORIGIN" value="456"/>
 		<item key="DIALOG_WIDTH" value="728"/>
 		<item key="DIALOG_HEIGHT" value="533"/>
@@ -76,7 +76,7 @@
 		<item key="RemoveFinal" value="false"/>
 	</section>
 	<section name="DialogBounds_GetterSetterTreeSelectionDialog">
-		<item key="DIALOG_X_ORIGIN" value="-588"/>
+		<item key="DIALOG_X_ORIGIN" value="11"/>
 		<item key="DIALOG_Y_ORIGIN" value="295"/>
 		<item key="DIALOG_WIDTH" value="823"/>
 		<item key="DIALOG_HEIGHT" value="1089"/>
@@ -92,7 +92,7 @@
 		<item key="OmitCallToSuper" value="false"/>
 	</section>
 	<section name="DialogBounds_GenerateConstructorUsingFieldsSelectionDialog">
-		<item key="DIALOG_X_ORIGIN" value="-570"/>
+		<item key="DIALOG_X_ORIGIN" value="11"/>
 		<item key="DIALOG_Y_ORIGIN" value="218"/>
 		<item key="DIALOG_WIDTH" value="805"/>
 		<item key="DIALOG_HEIGHT" value="1067"/>

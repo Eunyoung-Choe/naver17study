@@ -1,0 +1,20 @@
+package day1227;
+
+@FunctionalInterface
+interface MySawon
+{
+	public void sawonAdd(String name);
+}
+
+public class Ex3Lambda {
+
+	MySawon sawon1 = (name) -> System.out.println(name+" 사원 추가함!");
+	
+	public static void main(String[] args) {
+
+		Ex3Lambda ex3 = new Ex3Lambda();
+		ex3.sawon1.sawonAdd("최은영");
+		ex3.sawon1.sawonAdd("노진구");
+	}
+
+}
