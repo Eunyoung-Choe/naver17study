@@ -3,7 +3,7 @@ package day1227;
 // <T>는 T가 Type 파라미터임을 뜻하는 기호로, 타입이 필요한 자리에 T를 사용한다.
 // T는 클래스 타입만 가능하다.
 
-class GenericType<T>
+class GenericType<T> // 클래스명 뒤 <T>를 타입 매개변수라고 한다.
 {
 	T []v;
 	
@@ -31,7 +31,8 @@ public class Ex1Type {
 		String []s = {"장미꽃", "안개꽃", "국화꽃", "벚꽃"};
 		Integer []n = {90, 80, 100, 78, 98};
 		Double []d = {3.5, 6.7, 1.2, 23.4};
-		
+
+		// 객체 생성 시 변수 선언할 때처럼 타입을 지정해 호출할 수 있다.
 		GenericType<String> gt1 = new GenericType<>();
 		gt1.set(s);
 		gt1.print();
