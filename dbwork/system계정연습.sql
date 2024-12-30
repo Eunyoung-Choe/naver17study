@@ -48,3 +48,5 @@ alter user scott default TABLESPACE users quota UNLIMITED on users;
 
 -- angel의 비번을 a1234에서 pw1234로 변경해보자.
 alter user angel IDENTIFIED by pw1234;
+
+
