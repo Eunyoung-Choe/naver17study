@@ -178,7 +178,7 @@ select sysdate from dual; --현재 날짜
 select sysdate+1 from dual; --내일 날짜 
 select sysdate+7 from dual; --오늘로부터 7일 뒤 날짜
 
--- to_cahr 함수로 원하는 날짜 모양으로 출력배좌.
+-- to_cahr 함수로 원하는 날짜 모양으로 출력하좌.
 select to_char(sysdate, 'yyyy-mm-dd') from dual; --2024-12-30
 -- mm:월 / mi:분 / hh:12시간 표시 / AM 또는 PM:오전 오후 표시
 select to_char(sysdate, 'yyyy-mm-dd am hh24:mi') from dual; --2024-12-30 오후 04:41
@@ -191,3 +191,7 @@ select to_char(sysdate, 'yyyy') from dual;
 -- 현재 월 추출
 select to_char(sysdate, 'mm') from dual;
 select to_char(to_date('2024-5-10'), 'mm') from dual; --05
+
+-- emp의 hiredate는 날짜 타입이다.
+select to_char(hiredate, 'rrrr-mm-dd') 입사일 from emp;
+
