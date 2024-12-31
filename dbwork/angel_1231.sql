@@ -246,3 +246,35 @@ DELETE FROM FOOD WHERE FOODNUM = 300; --이건 아무도 주문 안 했으므로
 -- 부모 테이블 삭제 될까?
 DROP TABLE FOOD; --> 이 또한 안 됨. 자식 먼저 삭제해야 부모테이블 삭제 가능! (ORA-02449: 외래 키에 의해 참조되는 고유/기본 키가 테이블에 있습니다)
 COMMIT;
+
+
+
+
+
+
+
+SELECT 
+    F.FOODNAME 음식명,
+    F.FOODSIZE 음식크기,
+    F.FOODPRICE 가격,
+    COUNT(B.FOODNUM) 판매량
+FROM 
+    FOOD F
+LEFT JOIN 
+    BOOKING B
+ON 
+    F.FOODNUM = B.FOODNUM
+GROUP BY 
+    F.FOODNAME, F.FOODSIZE, F.FOODPRICE
+ORDER BY 
+    판매량 DESC;
+
+
+
+SELECT
+    f.foodnum, f.foodname, NVL(count(b.foodnum), 0) 판매량    
+FROM food f, booking b
+WHERE f.foodnum = b.foodnum(+)
+group by f.foodnum, f.foodname --묶어야 하는 요소가 f.foodnum과 f.foodname으로 2개가 한 세트라서 요소 하나만 쓰면 오류남.
+order by 판매량;
+
