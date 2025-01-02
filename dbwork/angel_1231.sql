@@ -22,8 +22,8 @@ DROP SEQUENCE SEQ5;
 
 -- TABLE 생성
 CREATE TABLE TEST1 (
-    -- PRIMARY KEY는 가능한 주는 게 좋음. 
-    NUM NUMBER(3) PRIMARY KEY,
+    -- PRIMARY KEY는 가능한 주는 게 좋음. (유일성 및 중복X 보장) 
+    NUM NUMBER(3) PRIMARY KEY, --같은 숫자 올 수 없음, (3)은 정수 길이(최대 3자리 숫자 저장 가능)
     NAME VARCHAR2(20) NOT NULL,
     TODAY DATE);
     
@@ -247,11 +247,27 @@ DELETE FROM FOOD WHERE FOODNUM = 300; --이건 아무도 주문 안 했으므로
 DROP TABLE FOOD; --> 이 또한 안 됨. 자식 먼저 삭제해야 부모테이블 삭제 가능! (ORA-02449: 외래 키에 의해 참조되는 고유/기본 키가 테이블에 있습니다)
 COMMIT;
 
+-- booking을 먼저 제거 후 food 제거하기 (외부키로 서로 연결되어 있으므로)
+drop table booking;
+drop table food;
+
+-- sawon 테이블도 일단 삭제
+drop table sawon;
+
+-- 시퀀스도 일단 모두 삭제
+drop sequence seq_food;
+drop sequence seq1;
 
 
 
 
 
+
+
+
+
+----아래는 스터디 팀원끼리 풀어본 문제
+-- Q. 판매량 많은 순서대로 출력하되 주문 없는(null)은 0으로 뜨도록. 
 
 SELECT 
     F.FOODNAME 음식명,
@@ -276,5 +292,5 @@ SELECT
 FROM food f, booking b
 WHERE f.foodnum = b.foodnum(+)
 group by f.foodnum, f.foodname --묶어야 하는 요소가 f.foodnum과 f.foodname으로 2개가 한 세트라서 요소 하나만 쓰면 오류남.
-order by 판매량;
+order by 판매량 desc;
 
