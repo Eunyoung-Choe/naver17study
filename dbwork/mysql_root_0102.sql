@@ -45,8 +45,8 @@ select substring('Have a nice day', 8, 4) from dual; -- nice
 
 -- ltrim, rtrim, trim: 공백 제거
 select concat('*', ltrim('	Happy	'), '*') from dual;
-select concat('*', ltrim('	Happy	'), '*') from dual;
-select concat('*', ltrim('	Happy	'), '*') from dual;
+select concat('*', rtrim('	Happy	'), '*') from dual;
+select concat('*', trim('	Happy	'), '*') from dual;
 
 -- lower,lcase: 소문자 변환 / upper, ucase: 대문자 변환
 select lower('HappY dAy HahA') from dual;
