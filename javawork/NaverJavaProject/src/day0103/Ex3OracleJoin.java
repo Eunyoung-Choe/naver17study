@@ -45,8 +45,8 @@ public class Ex3OracleJoin {
 				select
 				    s.sangcode, sangname, sangprice, cntnum, to_char(cartday, 'yyyy-mm-dd') cartday
 				from shop s, cart c
-				where s.sangcode=c.sangcode;
-				""";
+				where s.sangcode=c.sangcode
+				"""; // 이 안에 ;이 있어서 계속 오류 났었음!! 크아아악
 		
 		conn = this.getConnecton();
 		
@@ -88,8 +88,8 @@ public class Ex3OracleJoin {
 	/*==========================================================*/
 	public static void main(String[] args) {
 
-		Ex3OracleJoin ex1 = new Ex3OracleJoin();
-		ex1.joinDataWrite();
+		Ex3OracleJoin ex3 = new Ex3OracleJoin();
+		ex3.joinDataWrite();
 	}
 
 }

@@ -14,7 +14,7 @@ alter table person modify name varchar(30);
 alter table person rename column writeday to today;
 
 -- 5. hp에 데이터 넣기
-update person set hp = '010-2222-3333' where num=1;
+update person set hp = '010-2222-3333' where num=2;
 
 -- join 연습용 테이블 생성
 -- 부모 테이블은 person으로 하고 person의 num을 외부키로 갖는 stu 생성
@@ -54,4 +54,7 @@ delete from person where num=1;
 -- stu만 조회
 select * from stu;
 
-select name, age, blood, hp, date_format(today, "%Y%m%d %H:%i") from person;
+select name, age, blood, hp, date_format(today, "%Y-%m-%d %H:%i") today from person;
+
+select blood, count(*) count, round(avg(age),1) avgage from person
+group by blood order by count;

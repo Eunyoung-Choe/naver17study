@@ -10,10 +10,9 @@ public class Ex4MysqlJoin {
    static final String MYSQL_DRIVER="com.mysql.cj.jdbc.Driver";
    String url = "jdbc:mysql://localhost:3306/study502?serverTimezone=Asia/Seoul"; // 추후에 프로젝트 땐 localhost가 클라우드 주소로 들어갈 것
    String username = "root";
-   String password = "0000";
+   String password = "0000"; // 비번 잘못 입력해서 오류났음ㅎ
    
    public Ex4MysqlJoin() {
-      // TODO Auto-generated constructor stub
       try {
          Class.forName(MYSQL_DRIVER);
          System.out.println("Mysql 드라이버 성공!");
@@ -66,7 +65,6 @@ public class Ex4MysqlJoin {
          }
          
       } catch (SQLException e) {
-         // TODO Auto-generated catch block
          e.printStackTrace();
       } finally {
          try {
@@ -74,7 +72,6 @@ public class Ex4MysqlJoin {
             stmt.close();
             conn.close();
          } catch (SQLException|NullPointerException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
          }
       }
@@ -110,7 +107,6 @@ public class Ex4MysqlJoin {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 	         try {
@@ -118,7 +114,6 @@ public class Ex4MysqlJoin {
 	             stmt.close();
 	             conn.close();
 	          } catch (SQLException|NullPointerException e) {
-	             // TODO Auto-generated catch block
 	             e.printStackTrace();
 	          }
 	       }
@@ -126,10 +121,9 @@ public class Ex4MysqlJoin {
 	
    
    public static void main(String[] args) {
-      // TODO Auto-generated method stub
 
-	   Ex4MysqlJoin ex1 = new Ex4MysqlJoin();
-	   ex1.joinPersonTable();
+	   Ex4MysqlJoin ex4 = new Ex4MysqlJoin();
+	   ex4.joinPersonTable();
    }
 
 }

@@ -41,7 +41,7 @@ public class Ex1OracleConnect {
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
-		String sql = "select * from shop";
+		String sql = "select * from shop"; // 데이터베이스에서 가져올 데이터를 정의하는 쿼리문
 		
 		conn = this.getConnecton();
 		

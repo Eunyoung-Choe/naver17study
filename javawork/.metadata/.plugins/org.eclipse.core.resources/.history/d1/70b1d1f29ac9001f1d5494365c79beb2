@@ -1,0 +1,75 @@
+package day0103;
+
+import java.util.Scanner;
+
+public class Ex5MysqlInsertSelect {
+	static final String MYSQL_DRIVER="com.mysql.cj.jdbc.Driver";
+	String url = "jdbc:mysql://localhost:3306/study502?serverTimezone=Asia/Seoul"; // 추후에 프로젝트 땐 localhost가 클라우드 주소로 들어갈 것
+	String username = "root";
+	String password = "0000";
+
+	public Ex5MysqlInsertSelect() {
+		try {
+			Class.forName(MYSQL_DRIVER);
+		} catch (ClassNotFoundException e) {
+			System.out.println("Mysql 드라이버 오류: "+e.getMessage());
+		}
+	}
+	
+
+
+	public void insertPerson(String name, String blood, int age, String hp)
+	{
+		
+	}
+	
+	public void writePerson()
+	{
+		
+	}
+
+	/*=======================================================*/
+	public static void main(String[] args) {
+		Ex5MysqlInsertSelect ex5 = new Ex5MysqlInsertSelect();
+		Scanner sc = new Scanner(System.in);
+		
+		while(true)
+		{
+			System.out.println("1.데이터 추가  2.전체 출력  5.종료");
+			System.out.println("select menu?");
+			int menu = Integer.parseInt(sc.nextLine());
+			
+			switch(menu)
+			{
+			case 1:
+			{	
+				System.out.println("데이터를 추가합니다.");
+				System.out.println("이름을 입력하세요.");
+				String name = sc.nextLine();
+				System.out.println("혈액형을 입력하세요.");
+				String blood = sc.nextLine();
+				System.out.println("나이를 입력하세요.");
+				int age = Integer.parseInt(sc.nextLine());
+				System.out.println("핸드폰을 입력하세요.");
+				String hp = sc.nextLine();
+				
+				ex5.insertPerson(name, blood, age, hp);
+				break;
+			}
+			case 2:
+			
+				ex5.writePerson();
+				break;
+			default:
+					System.out.println("프로그램을 종료합니다.");
+					System.exit(0);
+			
+			System.out.println("==================");
+			}
+				
+		}
+	}
+	
+	
+
+}
