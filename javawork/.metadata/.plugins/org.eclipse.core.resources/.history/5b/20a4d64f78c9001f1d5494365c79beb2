@@ -1,0 +1,21 @@
+package day0103;
+
+public class Ex1OracleConnect {
+		static final String ORACLE_DRIVER = "oracle.jdbc.OracleDriver";
+		
+		public Ex1OracleConnect() {
+			try {
+				Class.forName(ORACLE_DRIVER);
+				System.out.println("오라클 드라이버 성공!");
+			} catch (ClassNotFoundException e) {
+				System.out.println("오라클 드라이버 실패: "+ e.getMessage());
+				e.printStackTrace();
+			}
+		}
+
+	public static void main(String[] args) {
+
+		Ex1OracleConnect ex1 = new Ex1OracleConnect();
+	}
+
+}

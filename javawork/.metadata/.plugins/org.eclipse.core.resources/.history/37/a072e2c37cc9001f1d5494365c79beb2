@@ -1,0 +1,22 @@
+package day0103;
+
+public class Ex2MysqlConnect {
+
+	static final String MYSQL_DRIVER = "com.mysql.cj.jdbc.Driver";
+	
+	public Ex2MysqlConnect() {
+		try {
+			Class.forName(MYSQL_DRIVER); // 실제 클래스 이름으로 반환해주는 역할
+			System.out.println("Mysql 드라이버 성공!");
+		} catch (ClassNotFoundException e) {
+			System.out.println("Mysql 드라이버 실패: "+e.getMessage());
+		} 
+		
+	}
+	
+	public static void main(String[] args) {
+
+		Ex2MysqlConnect ex2 = new Ex2MysqlConnect();
+	}
+
+}
