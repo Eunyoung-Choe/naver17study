@@ -81,50 +81,6 @@ public class Ex4MysqlJoin {
       
    }
    
-   
-	public void personBloodGroup()
-	{
-		// 혈액형 별 인원 수와 나이평균 구하기
-		Connection conn = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-	      
-		String sql = """
-				select blood, count(*) count, round(avg(age),1) avgage from person
-				group by blood order by count;
-				""";
-		
-		conn = this.getConnection();
-		
-		try {
-			stmt=conn.createStatement();
-			rs = stmt.executeQuery(sql);
-			
-			while(rs.next())
-			{
-				String blood = rs.getString("blood");
-				int count = rs.getInt("count");
-				int avgage = rs.getInt("avgage");
-				
-				System.out.println(blood+"\t"+count+"\t"+avgage);
-			}
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-	         try {
-	             rs.close();
-	             stmt.close();
-	             conn.close();
-	          } catch (SQLException|NullPointerException e) {
-	             // TODO Auto-generated catch block
-	             e.printStackTrace();
-	          }
-	       }
-	}
-	
-   
    public static void main(String[] args) {
       // TODO Auto-generated method stub
 

@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-// 어딘가 오류 있음
 public class Ex3OracleJoin {
 
 	static final String ORACLE_DRIVER = "oracle.jdbc.OracleDriver";
@@ -83,7 +82,7 @@ public class Ex3OracleJoin {
 		}
 	}
 	
-
+	
 	
 	/*==========================================================*/
 	public static void main(String[] args) {
