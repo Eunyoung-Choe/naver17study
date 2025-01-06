@@ -1,0 +1,18 @@
+package day0106;
+
+import db.connect.MysqlConnect;
+
+public class Ex1ShopMysql {
+	MysqlConnect mysqlConnect = new MysqlConnect();
+	
+	public void insertShop(String sangpum, int su, int danga)
+	{
+		
+	}
+
+	public static void main(String[] args) {
+		
+		
+	}
+
+}

@@ -197,24 +197,29 @@ public class Ex5MysqlInsertSelect {
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
-		String sql = "select * from person where name like concat('%','"+name+"','%')"; // 방법1
+		String sql = "delete from person where name='"+name+"'";
 		
 		conn = this.getConnection();
 		
-		try {
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-			
-			while(rs.next())
-			{
-				
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
+		 try {
+	         stmt = conn.createStatement();
+	         int n=stmt.executeUpdate(sql);
+	         if(n==0)
+	            System.out.println("\""+name+"\" 님은 존재하지 않습니다");
+	         else
+	            System.out.println(n+"명의 데이터가 삭제되었습니다.");
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         try {
+	            stmt.close();
+	            conn.close();
+	         } catch (SQLException|NullPointerException e) {
+	            e.printStackTrace();
+	         }
+	      }
+	   }
+	   
 	
 	
 	/*=======================================================*/
