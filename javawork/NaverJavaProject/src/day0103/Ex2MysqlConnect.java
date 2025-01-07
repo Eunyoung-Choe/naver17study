@@ -37,9 +37,9 @@ public class Ex2MysqlConnect {
 	
 	public void personWriteData()
 	{
-		Connection conn = null;
-		Statement stmt = null;
-		ResultSet rs = null;
+		Connection conn = null; // DB연결
+		Statement stmt = null; // SQL문을 DB로 보내기 위해 사용
+		ResultSet rs = null; // SQL쿼리 실행 결과 처리
 		
 		// 작성 방법1 (따옴표 때문에 \가 붙음.)
 //		String sql = "select name, age, blood, hp, date_format(today, \"%Y-%m-%d %H:%i\") today from person";
