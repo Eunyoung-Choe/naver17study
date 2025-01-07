@@ -32,7 +32,7 @@
 		<item key="create_package_info_java" value="false"/>
 	</section>
 	<section name="NewClassCreationWizard.dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="618"/>
+		<item key="DIALOG_X_ORIGIN" value="565"/>
 		<item key="DIALOG_Y_ORIGIN" value="242"/>
 		<item key="DIALOG_WIDTH" value="806"/>
 		<item key="DIALOG_HEIGHT" value="921"/>
@@ -93,7 +93,7 @@
 		<item key="OmitCallToSuper" value="false"/>
 	</section>
 	<section name="DialogBounds_GenerateConstructorUsingFieldsSelectionDialog">
-		<item key="DIALOG_X_ORIGIN" value="11"/>
+		<item key="DIALOG_X_ORIGIN" value="-318"/>
 		<item key="DIALOG_Y_ORIGIN" value="218"/>
 		<item key="DIALOG_WIDTH" value="805"/>
 		<item key="DIALOG_HEIGHT" value="1067"/>

@@ -3,6 +3,8 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="finally"/>
+		<item value="insert"/>
 		<item value="substring"/>
 		<item value="loop"/>
 		<item value="fileread"/>

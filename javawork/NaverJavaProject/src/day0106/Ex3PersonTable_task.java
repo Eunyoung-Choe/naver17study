@@ -106,6 +106,9 @@ public class Ex3PersonTable_task extends JFrame { // 클래스명
 					JOptionPane.showMessageDialog(Ex3PersonTable_task.this, "휴대폰 번호를 입력하세요.");
 					return;
 				}
+				
+				// insert()
+				personModel.insert
 			}
 	    });
 	    
