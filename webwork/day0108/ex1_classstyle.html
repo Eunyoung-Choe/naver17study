@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 범용 클래스 - 모든 태그에 적용되는 스타일, .클래스명 */
+        .happy {
+            font-size: 20px;
+            background-color: pink;
+            border: solid 3px greenyellow;
+        }
+
+        /* 특정 태그에서만 사용 가능한 클래스 만들기 */
+        #one{
+            border: dotted 2px gray;
+            background-color: #fef;
+        }
+
+        /* ID로 줬던 거라 아래 스타일과 중복 적용이 안 됨 */
+        /* #two{
+            border: dashed 2px green;
+            color: blue;
+            background-color: #ccf;
+        } */
+
+        /* >: 바로 아래 태그, 공백: 모든 자식 태그 */
+        div.java>div {
+            font-family: 'Impact';
+            color: red;
+        }
+
+        div.java>b {
+            font-size: 2em;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body>
+    <span style="color:blueviolet;" class="happy">아직도 수요일</span>
+    <br>
+    <b class="happy">Dorayaki Mukgoshipda.</b>
+    <br>
+    <u class="happy">Underline style</u> <!--밑줄 태그-->
+    <div>하읭~</div>
+    <hr>
+    <div class="hello happy">HTML Study</div> <!--여러 클래스 적용은 공백으로 구분-->
+    
+    <div id="one">Div Class ID One</div>
+    <div class="java">
+        Div Class java
+        <div id="two">
+            Div ID Two
+        </div>
+
+        <div>
+        div class java의 아래 태그 div
+        </div>
+        <b>div class java의 아래 태그 b</b>
+
+    </div>
+    
+
+
+</body>
+</html>

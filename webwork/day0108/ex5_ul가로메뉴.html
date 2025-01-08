@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--글꼴 Cinzel, Jersey 15-->
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Cinzel:wght@400..900&family=Do+Hyeon&family=Jersey+15&family=Nanum+Myeongjo&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Sunflower:wght@500&display=swap" rel="stylesheet">
+</head>
+<style>
+    h3 {
+        color: palegoldenrod;
+        background-color: darkslategrey;
+        width: 600px;
+        text-align: center;
+        font-family: 'Cinzel';
+    }
+
+    h3:hover {
+        color: cadetblue;
+        background-color: darkgray;
+        text-shadow: 3px 3px 3px white;
+        cursor: pointer;
+    }
+
+    /* active: 마우스로 클릭했을 때의 스타일 적용 */
+    h3:active {
+        border: groove 5px powderblue;
+    }
+
+    /* 항목 가로 방향 정렬 */
+    div.menu>ul>li {
+        list-style: none; /* li 앞 표식 없애기 */
+        float: left;
+        width: 100px;
+        border: solid 1px darkgreen;
+        margin-right: 10px;
+        font-size: 16px;
+        text-align: center;
+        height: 40px;
+        line-height: 40px; /* 한 줄일 경우 높이와 행 높이를 같게 주면 세로 방향의 가운데로 옴.*/
+        cursor: pointer;
+        border-radius: 20px;
+        background-color: lightgoldenrodyellow;
+        font-family: 'Cinzel';
+    }
+
+    div.menu>ul>li:hover {
+        color: white;
+        background-color: black;
+        box-shadow: 3px 3px 3px lightslategray;
+    }
+
+    h1.one {
+        font-family: 'Jersey 15';
+    }
+
+    h2.two {
+        font-family: 'Cinzel';
+    }
+</style>
+<body>
+    <h1 class="one">Font Test 1</h1>
+    <h2 class="two">Font Test 2</h2>
+
+    <h3> UL을 이용한 간단한 가로 메뉴</h3>
+    <div class = "menu">
+        <ul>
+            <li>Home</li>
+            <li>샵소개</li>
+            <li>방명록</li>
+            <li>게시판</li>
+            <li>오시는길</li>                           
+        </ul>
+    </div>
+</body>
+</html>
