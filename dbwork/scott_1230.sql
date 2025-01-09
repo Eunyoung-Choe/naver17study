@@ -86,6 +86,7 @@ select count(*) from emp; --이 경우는 컬럼명이 count(*)
 select count(*) count from emp; --이 경우는 컬럼명이 count
 select count(*) 총개수 from emp; --이 경우는 컬럼명이 총개수 
 
+-- NVL(): null값 대체 함수
 select sal, comm, sal+NVL(comm, 0) sum from emp; -- sal+NVL(comm, 0)열의 컬럼명은 sum으로 변경
 select sal 월급여, comm 커미션, sal+NVL(comm, 0) 총금액 from emp; --컬럼명을 한글로
 
