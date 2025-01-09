@@ -15,7 +15,7 @@
 --           year        CCYY 또는 YY
 
 create table person (
-	num smallint auto_increment primary key,
+	num smallint auto_increment primary key, -- 자동으로 증가하는 고유한 값을 가진 기본 키 (각 행 별로 1씩 증가)
     name varchar(20),
     blood varchar(10) default 'B',
     age smallint,
@@ -23,7 +23,7 @@ create table person (
     writeday datetime);
     
 -- table 구조 확인
-desc person;
+desc person; -- desc = describe
 show create table person; -- 디테일한 구조 확인
 
 -- 데이터 추가하기
@@ -56,7 +56,7 @@ select max(age) 최고나이, min(age) 최소나이 from person;
 select blood, count(*) 인원수, round(avg(age),0) 평균나이
 from person group by blood order by blood asc;
 
--- limit 시작위치, 가져올 글의 개수 (페이징)
+-- limit 시작위치, 가져올 글의 개수 (페이징: 일부만 가져오기)
 select * from person limit 0, 3; -- 첫 글 0번부터 3개만 가져오기
 select * from person limit 2, 3; -- 2번 글부터 3개만 가져오기(num3,4,5)
 
