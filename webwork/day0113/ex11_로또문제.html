@@ -49,30 +49,29 @@
                     let num = new Array(6);
 
                     // 배열에 중복되지 않은 1~45의 난수를 구한다.
-                    for(let i=0; i<lotto.length; i++){
-                        lotto[i] = Math.floor(Math.random() * 45) + 1;
+                    for(let i=0; i<num.length; i++){
+                        num[i] = parseInt(Math.random() * 45) + 1;
                         for(let j=0; j<i; j++){
                             if(lotto[i]==lotto[j]){
-                                i--;
+                                i--; // 
                                 break;
                             }
                         }
                     }
                     // 오름차순 정렬
-                    for(let i=0; i<lotto.length-1; i++){
-                        for(let j=i+1; j<lotto.length; j++){
-                            if(lotto[i]>lotto[j]){
-                                let temp = lotto[i];
-                                lotto[i] = lotto[j];
-                                lotto[j] = temp;
+                    for(let i=0; i<num.length-1; i++){
+                        for(let j=i+1; j<num.length; j++){
+                            if(num[i]>num[j]){
+                                let temp = num[i];
+                                num[i] = num[j];
+                                num[j] = temp;
                             }
                         }
                     }
 
                     // 위의 변수 lotto의 정렬된 숫자를 넣어준다.
-                    
                         for(let i=0; i<lotto.length; i++){
-                            document.querySelectorAll(".mylotto>.lotto")[i].textContent = lotto[i];
+                            lotto[i].innerHTML = num[i];
                         }
                     
 
