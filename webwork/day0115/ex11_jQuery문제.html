@@ -42,14 +42,14 @@
         //문제2
         //.shop 에 마우스를 올리면 사진을 추출해서 .largephoto 의 사진을 변경하시오
         $(".shop").mouseover(function(){
-            // $(this).attr("src", "../photo/K-041.png")
-            $(".largephoto").attr("src", $(this).attr("src"));
+            let scrImg = $(this).attr("src");
+            $(".largephoto").attr("src", scrImg);
         })
 
         //문제3
         //.largephoto 에 마우스를 올리면 해당 이미지 아래에
         // "안녕하세요!! 라는 메세지를 추가하시오"
-        $("div>img.largephoto").hover(function(){
+        $(".largephoto").hover(function(){ // 이 코드 내에서 largephoto 클래스가 고유해서 div>img.largephoto로 안 써도 됨.
             let s1 = `<h5 style="color:brown";>안녕하세요</h5>`;
             $("div>img.largephoto").after(s1);
         });
