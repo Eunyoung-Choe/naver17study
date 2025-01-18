@@ -75,7 +75,7 @@
 
             // 3. 하위 태그 중 img의 src를 얻어서 img.mainphoto에 넣는다.
             let imgSrc = $(this).find("img").attr("src");
-            $("img.mainphoto").attr("src", imgSrc);
+            $("img.mainphoto").attr("src", imgSrc); // 클래스가 mainphoto인 img 태그 선택
         });
 
         // div.a>img에서 mouseover 이벤트 구현한 경우
