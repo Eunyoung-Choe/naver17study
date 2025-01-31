@@ -1,3 +1,4 @@
+<%@page import="simpleboard.data.SimpleAnswerDao"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="simpleboard.data.SimpleBoardDto"%>
 <%@page import="java.util.List"%>
@@ -78,7 +79,17 @@
 					  <div style="text-overflow: ellipsis;overflow: hidden;
 					  white-space: nowrap;display: block;max-width: 200px;">
 						<a href="./contentdetail.jsp?num=<%=dto.getNum()%>">
-						<%=dto.getSubject() %></a>
+						<%=dto.getSubject() %>
+						<%
+						SimpleAnswerDao adao = new SimpleAnswerDao();
+						int acount = adao.getAnswerByNum(dto.getNum()).size();
+						
+						if(acount>0){
+						%>
+						&nbsp;
+						<span style="color:red;">(<%=acount %>)</span>
+						<%} %>
+						</a>
 					 </div>
 					</td>
 					<td><%=dto.getWriter() %></td>
