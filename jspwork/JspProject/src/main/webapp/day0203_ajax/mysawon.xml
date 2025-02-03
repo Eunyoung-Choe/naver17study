@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<board>
+	<sawon no="1">
+		<name>최은영</name>
+		<buseo>기획부</buseo>
+		<pay sudan="100000">100000</pay>
+	</sawon>
+	
+	<sawon no="2">
+		<name>이재희</name>
+		<buseo>총무부</buseo>
+		<pay sudan="300000">300000</pay>
+	</sawon>
+	
+	<sawon no="3">
+		<name>신윤지</name>
+		<buseo>홍보부</buseo>
+		<pay sudan="80000">80000</pay>
+	</sawon>
+	
+	<sawon no="4">
+		<name>조미나</name>
+		<buseo>미디어부</buseo>
+		<pay sudan="70000">70000</pay>
+	</sawon>
+</board>
