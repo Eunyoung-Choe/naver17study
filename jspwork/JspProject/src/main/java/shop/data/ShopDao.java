@@ -8,54 +8,84 @@ import java.util.List;
 import java.util.Vector;
 
 import db.connect.MysqlConnect;
-import sawon.data.SawonDto;
+import memo.data.MemoDto;
 
 public class ShopDao {
-	MysqlConnect connect=new MysqlConnect();
+	MysqlConnect db = new MysqlConnect();
 	
-	public List<ShopDto> getAllDatas(String search)
+	public void insertShop(ShopDto dto)
 	{
-		List<ShopDto> list=new Vector<ShopDto>();
-
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		String sql="insert into shop (sangpum,scolor, scnt, sprice, sphoto, ipgoday, writeday) values (?,?,?,?,?,?,now())";
+		
+		conn=db.getNaverCloudConnection();
+		try {
+			pstmt=conn.prepareStatement(sql);
+			//바인딩
+			pstmt.setString(1, dto.getSangpum());
+			pstmt.setString(2, dto.getScolor());
+			pstmt.setInt(3, dto.getScnt());
+			pstmt.setInt(4, dto.getSprice());
+			pstmt.setString(5, dto.getSphoto());
+			pstmt.setString(6, dto.getIpgoday());
+			//실행
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
+	
+	// order: 1.등록순 2.높은 가격 순 3.낮은 가격 순 4.상품명 순
+	public List<ShopDto> getAllSangpums(int order)
+	{
+		List<ShopDto> list = new Vector<ShopDto>();
+		
 		Connection conn=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
+		
 		String sql="";
+		if(order==1)
+			sql = "select * from shop order by num";
+		else if(order==2)
+			sql = "select * from shop order by sprice desc";
+		else if(order==3)
+			sql = "select * from shop order by sprice asc";
+		else if(order==4)
+			sql = "select * from shop order by sangpum asc";
 		
-		if(search==null || search.equals(""))
-			sql="select * from shop order by idx";
-		else
-			sql="select * from shop where sname like '%"+search+"%' order by idx";
-		
-
-		conn=connect.getConnection();//db접속
+		conn=db.getNaverCloudConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			rs=pstmt.executeQuery();
-
 			while(rs.next())
 			{
-				ShopDto dto=new ShopDto();
-				dto.setIdx(rs.getInt("idx"));
-				dto.setSangpum(rs.getString("sangpum"));
-				dto.setSu(rs.getInt("su"));
-				dto.setDanga(rs.getInt("danga"));
-				dto.setIpgoday(rs.getTimestamp("ipgoday"));
+			    ShopDto dto = new ShopDto();
+			    
+			    dto.setNum(rs.getInt("num"));
+			    dto.setSangpum(rs.getString("sangpum"));
+			    dto.setScolor(rs.getString("scolor"));
+			    dto.setScnt(rs.getInt("scnt"));
+			    dto.setSprice(rs.getInt("sprice"));
+			    dto.setSphoto(rs.getString("sphoto"));
+			    dto.setIpgoday(rs.getString("ipgoday"));
+			    dto.setWriteday(rs.getTimestamp("writeday"));
 
-				//dto에 레코드단위의 데이타를 다 넣은후 list 에 추가
-				list.add(dto);
-
+			    list.add(dto);
 			}
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
-			connect.dbClose(rs, pstmt, conn);
-		}
-
+			db.dbClose(rs, pstmt, conn);
+		}		
+		
 		return list;
-	}
 
-	
+	}
 }

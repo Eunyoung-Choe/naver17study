@@ -12,6 +12,12 @@ public class MysqlConnect {
     String username="root";
     String password="0000"; // 비밀번호 확인 잘 하자.
     
+    // NCP MySQL 서버 (위 localhost 자리에 내 Public 주소 기입)
+    String url2="jdbc:mysql://db-324o9b-kr.vpc-pub-cdb.ntruss.com:3306/studydb?serverTimezone=Asia/Seoul";
+    String username2="study";
+    String password2="bitcamp!@#123";
+    
+    
     public MysqlConnect() {
 		// TODO Auto-generated constructor stub
     	try {
@@ -28,6 +34,17 @@ public class MysqlConnect {
 			conn=DriverManager.getConnection(url, username, password);
 		} catch (SQLException e) {
 			System.out.println("mysql 서버 접속 실패:"+e.getMessage());
+		}
+    	return conn;
+    }
+    
+    public Connection getNaverCloudConnection()
+    {
+    	Connection conn=null;
+    	try {
+			conn=DriverManager.getConnection(url2, username2, password2);
+		} catch (SQLException e) {
+			System.out.println("네이버 클라우드 mysql 서버 접속 실패:"+e.getMessage());
 		}
     	return conn;
     }

@@ -18,7 +18,7 @@ public class MemoDao {
 		PreparedStatement pstmt=null;
 		String sql="insert into ajaxmemo (nickname,avata,message,writeday) values (?,?,?,now())";
 		
-		conn=db.getConnection();
+		conn=db.getNaverCloudConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			//바인딩
@@ -41,7 +41,7 @@ public class MemoDao {
 		PreparedStatement pstmt=null;
 		String sql="delete from ajaxmemo where idx=?";
 		
-		conn=db.getConnection();
+		conn=db.getNaverCloudConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			//바인딩
@@ -60,9 +60,9 @@ public class MemoDao {
 	{
 		Connection conn=null;
 		PreparedStatement pstmt=null;
-		String sql="update ajaxmemo nickname=?,avata=?,message=? where idx=?";
+		String sql="update ajaxmemo set nickname=?,avata=?,message=? where idx=?";
 		
-		conn=db.getConnection();
+		conn=db.getNaverCloudConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			//바인딩
@@ -89,7 +89,7 @@ public class MemoDao {
 		
 		String sql="select * from ajaxmemo order by idx desc";
 		
-		conn=db.getConnection();
+		conn=db.getNaverCloudConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			rs=pstmt.executeQuery();
@@ -123,7 +123,7 @@ public class MemoDao {
 		
 		String sql="select * from ajaxmemo  where nickname like ? order by idx desc";
 		
-		conn=db.getConnection();
+		conn=db.getNaverCloudConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			//바인딩
@@ -159,7 +159,7 @@ public class MemoDao {
 		
 		String sql="select * from ajaxmemo  where idx=?";
 		
-		conn=db.getConnection();
+		conn=db.getNaverCloudConnection();
 		try {
 			pstmt=conn.prepareStatement(sql);
 			//바인딩
