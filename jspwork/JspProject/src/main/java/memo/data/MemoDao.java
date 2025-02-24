@@ -114,6 +114,7 @@ public class MemoDao {
 		return list;
 	}
 	
+	// 특정 닉네임을 포함하는 메모 목록을 검색
 	public List<MemoDto> getSearchMemos(String nickname)
 	{
 		List<MemoDto> list=new Vector<MemoDto>();
@@ -150,6 +151,7 @@ public class MemoDao {
 		return list;
 	}
 	
+	// 특정 idx(메모 ID)를 기준으로 해당 메모를 가져오는 기능
 	public MemoDto getOneMemo(int idx)
 	{
 		MemoDto dto=new MemoDto();
@@ -183,5 +185,3 @@ public class MemoDao {
 		return dto;
 	}
 }
-
-
