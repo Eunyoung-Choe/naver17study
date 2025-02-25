@@ -35,9 +35,7 @@
    </update>
    
    <update id="updateMemberInfo"> 
-	    UPDATE member
-	    SET mname = #{mname}, mhp = #{mhp}, maddr = #{maddr}
-	    WHERE num = #{num}
+	    UPDATE member SET mname = #{mname}, mhp = #{mhp}, maddr = #{maddr} WHERE num = #{num}
 	</update>
 
 </mapper>

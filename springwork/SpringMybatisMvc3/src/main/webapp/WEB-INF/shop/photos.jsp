@@ -54,7 +54,10 @@
 	</h4>
 	<div class="photos">
 		<c:forTokens var="onephoto" items="${sphoto}" delims=",">
-			<img src="../save/${onephoto}">
+			<%-- <img src="../save/${onephoto}"> --%>
+			
+			<!-- 120x120 사이즈의 썸네일로 이미지 출력-->
+			<img src="${fronturl}/shop/${onephoto}${backurl}">
 			<i class="bi bi-x-circle photodel" pname="${onephoto}"></i>
 		</c:forTokens>
 	</div>

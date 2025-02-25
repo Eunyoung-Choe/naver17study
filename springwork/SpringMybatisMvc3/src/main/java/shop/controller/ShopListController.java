@@ -8,11 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import data.dto.ShopDto;
+import data.dto.ShopRepleDto;
 import data.service.ShopRepleService;
 import data.service.ShopService;
 
 @Controller
 public class ShopListController {
+
 	@Autowired
 	ShopService shopService;
 	
@@ -22,29 +24,28 @@ public class ShopListController {
 	@GetMapping("/shop/list")
 	public String shopList(Model model)
 	{
-		// 총 상품 개수
-		int totalCount = shopService.getTotalCount();
-		
-		// 전체 상품
-		List<ShopDto> list = shopService.getAllSangpum();
-		
-		// 메인 사진 등록
-		for(int i=0; i<list.size(); i++)
+		//총 상품 갯수
+		int totalCount=shopService.getTotalCount();
+		//전체 상품
+		List<ShopDto> list=shopService.getAllSangpum();
+		//메인 사진 등록
+		for(int i=0;i<list.size();i++)
 		{
-			ShopDto dto = list.get(i);
-			String mainPhoto = list.get(i).getSphoto().split(",")[0];
+			ShopDto dto=list.get(i);
+			String mainPhoto=dto.getSphoto().split(",")[0];
 			dto.setMainPhoto(mainPhoto);
 			
-			// 댓글 수 저장
-			int replecount = repleService.getRepleByNum(dto.getNum()).size();
+			//댓글수 저장
+			int replecount=repleService.getRepleByNum(dto.getNum()).size();
 			dto.setReplecount(replecount);
 		}
-		
-		// 모델에 저장
+		//모델에 저장
 		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("list", list);
+		model.addAttribute("fronturl", "https://2vfpxf298730.edge.naverncp.com/Dtk3zSOoO7");
+		model.addAttribute("backurl", "?type=f&w=30&h=30&faceopt=true&ttype=jpg");
 		
-		// 포워드
+		//포워드
 		return "shop/shoplist";
 	}
 }

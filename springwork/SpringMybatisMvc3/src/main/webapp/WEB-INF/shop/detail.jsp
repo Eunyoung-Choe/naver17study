@@ -104,7 +104,6 @@
      		//댓글 등록버튼 이벤트
      		$("#btnaddreple").click(function(){     			
      			let m=$("#message").val();
-     			alert("dd")
      			if(m==''){
      				alert("댓글을 입력해주세요");
      				return;
@@ -143,38 +142,38 @@
      			$("img.replelarge").attr("src",imgSrc);
      		});
      		
-     		// 댓글 삭제
-     		$(document).on("click", ".repledel", function(){
-     			let idx = $(this).attr("idx");
-     			let ans = confirm("해당 댓글을 삭제할까요?");
-     			if(!ans) return; // 취소 클릭 시 함수 종료 
+     		//댓글 삭제
+     		$(document).on("click",".repledel",function(){
+     			let idx=$(this).attr("idx");
+     			let ans=confirm("해당 댓글을 삭제할까요?");
+     			if(!ans) return;//취소 클릭시 함수 종료
      			
      			$.ajax({
-     				type: "get",
-     				dataType: "text",
-     				data: {"idx":idx},
+     				type:"get",
+     				dataType:"text",
+     				data:{"idx":idx},
      				url:"./repledel",
      				success:function(){
-     					// 댓글 삭제 후 전체 댓글 다시 출력
+     					//댓글 삭제후 전체 댓글 다시 출력
      					replelist();
      				}
      			});
      		});
      		
-     		// 추천아이콘 클릭시 추천 수 증가
-     		$(document).on("click",".likesicon", function(){
-     			let idx = $(this).attr("idx");
-     			let icon = $(this);
-     			
+     		//추천아이콘 클릭시 추천수 증가
+     		$(document).on("click",".likesicon",function(){
+     			let idx=$(this).attr("idx");
+     			let icon=$(this);
      			$.ajax({
-     				type: "get",
-     				dataType: "json",
-     				data: {"idx":idx},
+     				type:"get",
+     				dataType:"json",
+     				data:{"idx":idx},
      				url:"./likes",
      				success:function(res){
-     					// alert(res.likes);
-     					$(this).next().find(".likes").text(res.likes);
+     					//alert(res.likes);
+     					icon.next().find(".likes").text(res.likes);
      				}
+     			});
      		});
      	});
      	
@@ -191,8 +190,10 @@
      				$.each(res,function(idx,item){
      					s+=`
      					 <div class="item" style="margin-bottom:5px;">
-     							<img src="../save/\${item.photo}" class="mini"
-     								data-bs-toggle="modal" data-bs-target="#myMiniPhotoModal">
+     							
+     							<img src="${naverurl}/shop/\${item.photo}" class="mini"
+         							data-bs-toggle="modal" data-bs-target="#myMiniPhotoModal">
+     								
      							\${item.message}
      							<span class="day">\${item.writetime}</span>
      							<span style:"float:right;">
@@ -246,7 +247,8 @@
 		<tr>
 			<td width="120">
 				<c:forTokens var="photo" items="${dto.sphoto}" delims=",">
-					<img src="../save/${photo}" class="small">
+					<%-- <img src="../save/${photo}" class="small"> --%>
+					<img src="${naverurl}/shop/${photo}" class="small">
 					
 					<script type="text/javascript">
 						$("img.small").click(function(){
@@ -256,7 +258,10 @@
 				</c:forTokens>
 			</td>
 			<td>
-				<img src="../save/${dto.mainPhoto}" class="large"
+				<%-- <img src="../save/${dto.mainPhoto}" class="large"
+				onerror="this.src='../save/noimage.png'"> --%>
+				
+				<img src="${naverurl}/shop/${dto.mainPhoto}" class="large"
 				onerror="this.src='../save/noimage.png'">
 			</td>
 		</tr>

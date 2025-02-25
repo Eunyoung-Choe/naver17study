@@ -16,6 +16,5 @@ public interface MemberMapper {
    public MemberDto getSelectByNum(int num);
    public MemberDto getSelectByMyid(String myid);
    public void changePhoto(String mphoto, int num);
-   
-   public void updateMemberInfo(int num, String mname,String mhp, String maddr);
+   public void updateMember(MemberDto dto);
 }

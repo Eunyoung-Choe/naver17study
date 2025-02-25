@@ -17,13 +17,20 @@ import org.springframework.web.multipart.MultipartFile;
 import data.dto.ShopRepleDto;
 import data.service.ShopRepleService;
 import jakarta.servlet.http.HttpServletRequest;
+import naver.storage.NcpObjectStorageService;
 
 @RestController
 public class ShopRepleController {
-	
+
 	@Autowired
 	ShopRepleService repleService;
-	
+
+	//버켓 이름
+	private String bucketName="bitcamp-bucket-149";//각자 자기꺼 써야함
+
+	@Autowired
+	NcpObjectStorageService storageService;
+
 	@PostMapping("/shop/addreple")
 	public void insertReple(
 			HttpServletRequest request,
@@ -33,17 +40,21 @@ public class ShopRepleController {
 			)
 	{
 		System.out.println(upload.getOriginalFilename()+","+message);
-		//save 의 실제 경로 구하기
-		String uploadFolder=request.getSession().getServletContext().getRealPath("/save");
-		//업로드할 파일명(랜덤문자열.확장자)
-		String uploadFilename=UUID.randomUUID()+"."+upload.getOriginalFilename().split("\\.")[1];
-		//사진업로드
-		try {
-			upload.transferTo(new File(uploadFolder+"/"+uploadFilename));
-		} catch (IllegalStateException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		//		//save 의 실제 경로 구하기
+		//		String uploadFolder=request.getSession().getServletContext().getRealPath("/save");
+		//		//업로드할 파일명(랜덤문자열.확장자)
+		//		String uploadFilename=UUID.randomUUID()+"."+upload.getOriginalFilename().split("\\.")[1];
+		//		//사진업로드
+		//		try {
+		//			upload.transferTo(new File(uploadFolder+"/"+uploadFilename));
+		//		} catch (IllegalStateException | IOException e) {
+		//			// TODO Auto-generated catch block
+		//			e.printStackTrace();
+		//		}
+
+		//네이버 스토리지에 사진 업로드
+		String uploadFilename=storageService.uploadFile(bucketName, "shop", upload);
+
 		//dto 생성
 		ShopRepleDto dto=new ShopRepleDto();
 		dto.setNum(num);
@@ -62,31 +73,36 @@ public class ShopRepleController {
 		list=repleService.getRepleByNum(num);		
 		return list;
 	}
-	
+
 	@GetMapping("/shop/repledel")
-	public void repleDelete(@RequestParam int idx, HttpServletRequest request)
+	public void repleDelete(@RequestParam int idx,HttpServletRequest request)
 	{
-		String uploadFolder = request.getSession().getServletContext().getRealPath("/save");
+		//		String uploadFolder=request.getSession().getServletContext().getRealPath("/save");
+		//		//삭제할 사진명
+		//		String photo=repleService.getPhoto(idx);
+		//		//사진 삭제
+		//		File file=new File(uploadFolder+"/"+photo);
+		//		if(file.exists())
+		//			file.delete();
+
+		//네이버 스토리지의 사진 삭제
+		//삭제할 사진명
+		String photo=repleService.getPhoto(idx);
+		storageService.deleteFile(bucketName, "shop", photo);
 		
-		// 삭제할 사진명
-		String photo = repleService.getPhoto(idx);
-		
-		// 사진 삭제
-		File file = new File(uploadFolder+"/"+photo);
-		if(file.exists())
-			file.delete();
+		//db 삭제
 		repleService.deleteShopReple(idx);
 	}
-	
+
 	@GetMapping("/shop/likes")
 	public Map<String, Integer> getLikes(@RequestParam int idx)
 	{
-		// likes 1 증가
+		//likes 1 증가
 		repleService.updateLikes(idx);
-		// 최종 likes 받기
-		int likes = repleService.getLikes(idx);
-		// Map
-		Map<String, Integer> map = new HashMap<>();
+		//최종 likes 받기
+		int likes=repleService.getLikes(idx);
+		//Map
+		Map<String, Integer> map=new HashMap<>();
 		map.put("likes", likes);
 		return map;
 	}

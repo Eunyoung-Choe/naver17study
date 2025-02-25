@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import data.dto.ShopDto;
@@ -24,11 +26,10 @@ public class ShopUpdateController {
 		return "shop/updateform";
 	}
 	
-	
-	// 추가
-	@GetMapping("/shop/update")
-	public String updatePage() {
-	    return "shop/update"; // update.jsp 필요
+	@PostMapping("/shop/update")
+	public String update(@ModelAttribute ShopDto dto)
+	{
+		shopService.updateShop(dto);
+		return "redirect:./detail?num="+dto.getNum();
 	}
-
 }
