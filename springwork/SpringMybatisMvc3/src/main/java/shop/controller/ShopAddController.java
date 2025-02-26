@@ -43,14 +43,15 @@ public class ShopAddController {
 			)
 	{
 //		//업로드할 save 경로 구하기
-//		String uploadFolder=request.getSession().getServletContext().getRealPath("/save");		
+//		String uploadFolder=request.getSession().getServletContext().getRealPath("/save"); // C:/tomcat/webapps/ROOT/save/	
 //
 //		//dto 에 저장할 변수명
 //		String sphoto="";
 //		for(MultipartFile upload:uploadList)
 //		{
-//			//파일명을 랜덤값.확장자 형식으로 만들기
-//			String uploadFilename=UUID.randomUUID()+"."+(upload.getOriginalFilename().split("\\.")[1]);
+			
+//			//파일명을 랜덤값.확장자 형식으로 만들기 (UUID.randomUUID() → 랜덤한 고유 문자열 생성)
+//			String uploadFilename=UUID.randomUUID()+"."+(upload.getOriginalFilename().split("\\.")[1]); // 파일 이름을 "." 기준으로 나눠서 확장자 추출
 //			sphoto+=uploadFilename+",";
 //
 //			//업로드
