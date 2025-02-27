@@ -27,7 +27,7 @@
    </select>
    
    <update id="updateReadcount" parameterType="int">
-   		update board set readount = readcount+1 where idx=#{idx}
+   		update board set readcount = readcount+1 where idx=#{idx}
    </update>
    
    <select id="getSelectByIdx" parameterType="int" resultType="BoardDto">

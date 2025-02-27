@@ -22,4 +22,14 @@ public class BoardFileService {
 	{
 		return fileMapper.getFiles(idx);
 	}
+	
+	public void deleteFile(int num) // void로 선언하는 건 무슨 경우지
+	{
+		fileMapper.deleteFile(num);
+	}
+	
+	public String getFilename(int num)
+	{
+		return fileMapper.getFilename(num);
+	}
 }
