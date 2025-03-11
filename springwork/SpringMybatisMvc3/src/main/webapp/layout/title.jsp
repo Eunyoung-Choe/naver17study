@@ -124,18 +124,19 @@
 		</a>
 		<br>
 		<span style="margin-left:300px;font-size: 15px;">
-			<c:if test="${sessionScope.loginstatus!=null}">
+			<c:if test="${sessionScope.loginstatus!=null}"> <!-- 로그인한 상태이면 아래 코드 실행 -->
 				<c:set var="naverurl" value="https://kr.object.ncloudstorage.com/bitcamp-bucket-149"/>
 				
+				<!-- sessionScope.loginphoto에 저장된 사용자 프로필 사진 파일명을 이용해 클라우드에서 이미지를 불러옴. -->
 				<img src="${naverurl}/member/${sessionScope.loginphoto}" class="profilephoto"
-				onerror="this.src='${root}/save/noimage.png'">
+				onerror="this.src='${root}/save/noimage.png'"> <!-- ${root}는 현재 웹 애플리케이션의 루트 경로 -->
 				<script>
-					$(".profilephoto").click(function(){
+					$(".profilephoto").click(function(){ <!--프로필 누르면 mypage로 이동-->
 						location.href=`${root}/member/mypage`;
 					});
 				</script>
 				
-				<b>${sessionScope.loginid}</b> 님이 로그인중입니다
+				<b>${sessionScope.loginid}</b> 님이 로그인 중입니다
 			</c:if>
 		</span>		
 	</h2>

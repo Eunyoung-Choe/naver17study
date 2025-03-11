@@ -12,7 +12,7 @@ public interface BoardMapper {
 	public int getMaxIdx();
 	public void updateRestep(int regroup,int restep);
 	public void insertBoard(BoardDto dto);
-	public List<BoardDto> getPagingList(int start,int perpage); // BoardDto에 담긴 데이터들을 리스트로 받아 가져오는 역할
+	public List<BoardDto> getPagingList(int start,int perpage);
 	public void updateReadcount(int idx);
 	public BoardDto getSelectByIdx(int idx);
 	public List<BoardDto> getSelectById(String myid);

@@ -33,29 +33,33 @@ public class NcpObjectStorageService implements ObjectStorageService {
 	
 	@Override
 	public String uploadFile(String bucketName, String directoryPath, MultipartFile file) {
-		System.out.println("uploadFile="+file.getOriginalFilename());
+		System.out.println("uploadFile=" + file.getOriginalFilename());
 
 		if (file.isEmpty()) {
 			return null;
 		}
 
 		try (InputStream fileIn = file.getInputStream()) {
-			SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddHHmm_");
-			String filename =sdf.format(new Date())+UUID.randomUUID().toString().substring(0,10)
-					+"."+file.getOriginalFilename().split("\\.")[1];
+			// 파일명 형식: "yyyyMMddHHmm_UUID.확장자"
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm_");
+			String filename = sdf.format(new Date()) + UUID.randomUUID().toString().substring(0, 10)
+					+ "." + file.getOriginalFilename().split("\\.")[1];
 
+			// 파일 메타데이터 설정
 			ObjectMetadata objectMetadata = new ObjectMetadata();
 			objectMetadata.setContentType(file.getContentType());
 
+			// S3 업로드 요청 객체 생성
 			PutObjectRequest objectRequest = new PutObjectRequest(
 					bucketName,
-					directoryPath +"/"+ filename,
+					directoryPath + "/" + filename,
 					fileIn,
 					objectMetadata).withCannedAcl(CannedAccessControlList.PublicRead);
 
+			// S3에 파일 업로드
 			s3.putObject(objectRequest);
-			
-			//return s3.getUrl(bucketName, directoryPath + filename).toString();
+
+			// 업로드된 파일명 반환
 			return filename;
 
 		} catch (Exception e) {
@@ -63,17 +67,18 @@ public class NcpObjectStorageService implements ObjectStorageService {
 		}
 	}
 
+
 	@Override
 	public void deleteFile(String bucketName, String directoryPath, String fileName) {
-		// TODO Auto-generated method stub
-		String path=directoryPath+"/"+fileName;
-		//해당 버킷에 파일이 존재하면 true반환
-		boolean isfind=s3.doesObjectExist(bucketName,path);
-		//존재할경우 삭제
-		if(isfind) {
-			s3.deleteObject(bucketName,path);
-			System.out.println(path+":삭제완료");
+		String path = directoryPath + "/" + fileName;
+		// 해당 파일이 존재하는지 확인
+		boolean isfind = s3.doesObjectExist(bucketName, path);
+		// 존재하면 삭제
+		if (isfind) {
+			s3.deleteObject(bucketName, path);
+			System.out.println(path + ":삭제완료");
 		}		
 	}
+
 
 }

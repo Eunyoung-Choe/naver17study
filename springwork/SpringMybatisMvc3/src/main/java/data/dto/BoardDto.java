@@ -4,11 +4,10 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import org.apache.ibatis.type.Alias;
-
 import lombok.Data;
 
-@Data
 @Alias("BoardDto")
+@Data
 public class BoardDto {
 	private int idx;
 	private String myid;
@@ -20,6 +19,7 @@ public class BoardDto {
 	private int relevel;
 	private int restep;
 	private Timestamp writeday;
-	private List<String> photos;
+	private List<String> photos;	
 	private int photoCount;
+	private int repleCount;
 }

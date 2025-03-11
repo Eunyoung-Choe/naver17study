@@ -44,7 +44,7 @@ public class MemberDelUpdateController {
 	final BoardFileService fileService;
 	
 	//버켓 이름
-	private String bucketName="bitcamp-bucket-56";//각자 자기꺼 써야함
+	private String bucketName="bitcamp-bucket-149";//각자 자기꺼 써야함
 
 
 

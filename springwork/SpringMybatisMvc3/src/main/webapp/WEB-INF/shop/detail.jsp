@@ -139,7 +139,7 @@
      		//미니 댓글 사진 클릭시 원본사진 보기
      		$(document).on("click","img.mini",function(){
      			let imgSrc=$(this).attr("src");
-     			$("img.replelarge").attr("src",imgSrc);
+     			$("img.arge").attr("src",imgSrc);
      		});
      		
      		//댓글 삭제
@@ -246,6 +246,7 @@
 	<table>
 		<tr>
 			<td width="120">
+			<!-- c:forTokens = 특정 문자열을 구분자로 나누어 반복 실행하는 태그 -->
 				<c:forTokens var="photo" items="${dto.sphoto}" delims=",">
 					<%-- <img src="../save/${photo}" class="small"> --%>
 					<img src="${naverurl}/shop/${photo}" class="small">

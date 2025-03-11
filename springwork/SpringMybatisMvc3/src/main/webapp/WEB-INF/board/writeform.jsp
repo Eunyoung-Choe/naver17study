@@ -33,6 +33,7 @@
 <jsp:include page="../../layout/title.jsp"/>
 
 <div style="margin:20px; width:600px;">
+	<!-- form에 ./insert가 있어서 button에 따로 연결 코드가 없어도 되는 것 -->
    <form action="./insert" method="post" enctype="multipart/form-data">
       <!-- hidden -->
       <input type="hidden" name="idx" value="${idx}">
