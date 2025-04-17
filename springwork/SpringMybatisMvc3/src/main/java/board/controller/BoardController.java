@@ -90,7 +90,7 @@ public class BoardController {
 				fileService.insertBoardFile(bdto);
 			}
 		}
-		return "redirect:./list?pageNum="+pageNum;
+		return "redirect:./list?pageNum="+pageNum; // pageNum을 붙인 이유는 사용자가 보고 있던 페이지를 유지하기 위해.
 	}
 
 	@GetMapping("/detail")
