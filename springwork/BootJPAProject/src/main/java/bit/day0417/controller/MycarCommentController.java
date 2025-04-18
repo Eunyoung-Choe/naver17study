@@ -26,45 +26,51 @@ public class MycarCommentController {
 
 	final MycarCommentService commentService;
 	@Operation(summary = "addcomment", description = "댓글(닉네임, 코멘트 추가 기능)")
-//	@PostMapping("/addcomment")
-//	public void addComment(@RequestParam("nickname") String nickname, @RequestParam("comment") String comment,
-//						@RequestParam("num") Long num)
-//	{
-//		MycarDto dto = MycarDto.builder().num(num).build();
-//		MycarCommentDto commentDto = MycarCommentDto.builder()
-//				.nickname(nickname)
-//				.comment(comment)
-//				.mycar(dto)
-//				.build();
-//		
-//		// DB insert
-//		commentService.insertComment(commentDto);
-//	}
-	
-	@PostMapping("/addcomment")
-	public String addComment(@RequestBody MycarCommentDto dto)
-	{
-		MycarDto mycar = MycarDto.builder().num(dto.getNum()).build();
-		MycarCommentDto commentDto = MycarCommentDto.builder()
-				.mycar(mycar)
+	//	@PostMapping("/addcomment")
+	//	public void addComment(@RequestParam("nickname") String nickname, @RequestParam("comment") String comment,
+	//						@RequestParam("num") Long num)
+	//	{
+	//		MycarDto dto = MycarDto.builder().num(num).build();
+	//		MycarCommentDto commentDto = MycarCommentDto.builder()
+	//				.nickname(nickname)
+	//				.comment(comment)
+	//				.mycar(dto)
+	//				.build();
+	//		
+	//		// DB insert
+	//		commentService.insertComment(commentDto);
+	//	}
+
+	@PostMapping("/addcomment") 
+	public void addComment(@RequestParam("nickname") String nickname, @RequestParam("comment") String comment,     
+			@RequestParam("num") Long num) { 
+		//먼저 MycarDto에 num값을 넣은 후 MyCarCommentDto에
+		//넣는다(외부키로 지정된 값) 
+		MycarDto mycar=MycarDto.builder().num(num).build();
+
+		MycarCommentDto commentDto=MycarCommentDto.builder() 
+				.nickname(nickname)
+				.comment(comment) 
+				.mycar(mycar) 
 				.build();
-		
-		return "comment insert ok";
+
+		//db insert 
+		commentService.insertComment(commentDto); 
 	}
-	
-	
+
+
 	@GetMapping("/commentlist")
 	public List<MycarCommentDto> commentList(@RequestParam("num") long num)
 	{
 		return commentService.getCommentList(num);
 	}
-	
+
 	@Operation(summary = "commentdelete", description = "댓글 삭제 기능")
 	@DeleteMapping("/commentdel")
 	public String deleteComment(@RequestParam("idx") int idx)
 	{
 		commentService.deleteComment(idx);
-		
+
 		return "comment delete ok";
 	}
 }
